@@ -5,6 +5,7 @@ class Vote < ActiveRecord::Base
 
   after_create :update_scores
 
+  validates_uniqueness_of :voter_id, :scope => :meme_id
   def update_scores
     
   end
