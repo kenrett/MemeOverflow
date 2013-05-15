@@ -9,13 +9,13 @@ FactoryGirl.define do
     creator
   end
 
-  factory :vote, :aliases => [:upvote] do
+  factory :vote, :aliases => [:up_vote] do
     voter
     meme
-    type "Up"
+    vote_type "up"
   end
 
   factory :down_vote, :parent => :vote do
-    type "Down"
+    vote_type "down"
   end
 end

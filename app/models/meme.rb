@@ -7,7 +7,8 @@ class Meme < ActiveRecord::Base
 
 
   def update_meme_score
-    self.score = self.votes.count
+    self.score = calculate_score
+    self.save!
   end
 
 
@@ -15,5 +16,9 @@ class Meme < ActiveRecord::Base
 
   def to_slug
     self.slug = SecureRandom.hex(4)
+  end
+  
+  def calculate_score
+    votes.up_votes.count - votes.down_votes.count
   end
 end
