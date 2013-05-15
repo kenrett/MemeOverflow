@@ -9,7 +9,7 @@ MemeOverflow::Application.routes.draw do
     end
   end 
 
-  resources :meme do
+  resources :memes do
     member do
       post "vote/create"
       put "vote/update"

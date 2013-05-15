@@ -41,6 +41,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    filepicker-rails (0.1)
+      multi_json (~> 1.6)
+      railties (>= 3.1.0, < 5.0)
     flat-ui-rails (0.0.2)
     haml (4.0.2)
       tilt
@@ -127,6 +130,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  filepicker-rails
   flat-ui-rails
   haml-rails
   jquery-rails

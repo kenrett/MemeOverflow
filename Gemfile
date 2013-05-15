@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'sextant'
 gem 'pg'
-
+gem 'filepicker-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
