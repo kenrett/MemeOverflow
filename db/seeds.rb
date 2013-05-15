@@ -9,3 +9,6 @@
 
 sam = User.create(full_name: "samskies", email: "samsamskies@gmail.com")
 sidney = User.create(full_name: "sidney", email: "sidney@gmail.com")
+
+
+Meme.create(url: "www.google.com", creator: sam)
