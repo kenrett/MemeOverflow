@@ -1,4 +1,26 @@
 MemeOverflow::Application.routes.draw do
+  get "session/create"
+
+  get "session/destroy"
+
+  get "home/index"
+
+  get "vote/create"
+
+  get "vote/update"
+
+  get "user/new"
+
+  get "user/create"
+
+  get "user/destroy"
+
+  get "meme/show"
+
+  get "meme/create"
+
+  get "meme/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
