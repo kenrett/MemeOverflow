@@ -6,8 +6,8 @@ class Meme < ActiveRecord::Base
   before_create :to_slug
 
 
-  def update_meme_score(up_or_down)
-    
+  def update_meme_score
+    self.score = self.votes.count
   end
 
 
