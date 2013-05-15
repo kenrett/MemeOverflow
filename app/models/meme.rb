@@ -16,7 +16,4 @@ class Meme < ActiveRecord::Base
   def to_slug
     
   end
-
-
-
 end
