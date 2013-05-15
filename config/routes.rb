@@ -1,25 +1,20 @@
 MemeOverflow::Application.routes.draw do
-  get "session/create"
 
-  get "session/destroy"
+  root :to => 'home#index'  
 
-  get "home/index"
+  resources :user do 
+    member do
+     get "log_out" => "sessions#destroy", :as => "log_out"
+     get "log_in" => "sessions#create", :as => "log_in"
+    end
+  end 
 
-  get "vote/create"
-
-  get "vote/update"
-
-  get "user/new"
-
-  get "user/create"
-
-  get "user/destroy"
-
-  get "meme/show"
-
-  get "meme/create"
-
-  get "meme/destroy"
+  resources :meme do
+    member do
+      post "vote/create"
+      put "vote/update"
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -70,7 +65,7 @@ MemeOverflow::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  
 
   # See how all your routes lay out with "rake routes"
 
