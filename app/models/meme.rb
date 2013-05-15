@@ -6,7 +6,7 @@ class Meme < ActiveRecord::Base
   before_create :to_slug
 
 
-  def update_meme_score
+  def update_meme_score(up_or_down)
     
   end
 
@@ -14,6 +14,6 @@ class Meme < ActiveRecord::Base
   private
 
   def to_slug
-    self.
+    self.slug = SecureRandom.hex(4)
   end
 end
