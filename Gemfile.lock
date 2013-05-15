@@ -40,6 +40,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    flat-ui-rails (0.0.2)
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -111,6 +112,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  flat-ui-rails
   haml-rails
   jquery-rails
   pg
