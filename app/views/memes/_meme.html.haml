@@ -1,0 +1,8 @@
+.meme-box
+  %h1 your photo
+  = image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"
+  = form_tag vote_create_meme_path(meme) do
+    = button_tag "Upvote", :name => "vote_type", :value => "up"
+    = meme.score
+    = button_tag "Downvote", :name => "vote_type", :value => "down"
+
