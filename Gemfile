@@ -20,6 +20,7 @@ end
 
 gem "omniauth-google-oauth2"
 gem "cancan"
+gem 'thin'
 
 gem 'sidekiq'
 gem 'sinatra', require: false

@@ -1,7 +1,8 @@
+set :output, "/cron_log.log"
+
 every 2.minutes do
   runner "Meme.cache_scores"
 end
-
 
 every 2.minutes do
   rake "-T"
