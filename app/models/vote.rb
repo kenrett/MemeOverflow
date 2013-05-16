@@ -17,8 +17,6 @@ class Vote < ActiveRecord::Base
   def update_scores
     self.meme.update_meme_score
     self.meme.creator.update_user_score
-    # p self.id
-    # VotesWorker.perform_async(self.id)
   end
 
   def downcase_vote_type

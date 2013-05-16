@@ -1,14 +1,14 @@
 .meme-box
   %h1 your photo
-  - if can? :destroy, Meme
+  - if can? :destroy, meme
     = link_to "Delete", meme_path(meme), :method=>:delete
   = image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"
   = form_tag vote_create_meme_path(meme) do
     - if can? :manage, :all
       = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
       = button_tag "Admin Downvote", :name => "vote_type", :value => "admin_down"
-      
-    = button_tag "Upvote", :name => "vote_type", :value => "up"
-    = meme.score
-    = button_tag "Downvote", :name => "vote_type", :value => "down"
+    - if can? :create, Vote  
+      = button_tag "Upvote", :name => "vote_type", :value => "up", :class => "btn"
+      = meme.score
+      = button_tag "Downvote", :name => "vote_type", :value => "down", :class => "btn"
 
