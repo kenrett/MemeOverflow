@@ -10,6 +10,9 @@
   = f.filepicker_field :url
   = f.submit
 
+%a{:href => "/auth/google_oauth2"}
+  %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}/
+
 .container
   - @memes.each do |meme|
     = render_meme_box(meme)
