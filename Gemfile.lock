@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/kristianmandrup/social-buttons.git
+  revision: 607ff6ddb18202c5f0576236f068299e6aad267e
+  specs:
+    social-buttons (0.3.8)
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -203,6 +210,7 @@ GEM
       railties (~> 3.0)
       slim (~> 1.0)
     slop (3.4.4)
+    social-share-button (0.1.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -255,6 +263,8 @@ DEPENDENCIES
   sidekiq
   sinatra
   slim-rails
+  social-buttons!
+  social-share-button
   thin
   uglifier (>= 1.0.3)
   whenever

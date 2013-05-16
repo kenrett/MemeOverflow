@@ -8,7 +8,6 @@ class MemesController < ApplicationController
   end
 
   def create
-    p params
     @user = current_user
     @meme = Meme.new(url: params[:url])
     @meme.update_attributes(:creator_id => @user.id)
