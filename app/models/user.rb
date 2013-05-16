@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?
+    self.auth_status == "admin"
+  end
+
+  def user?
+    self.auth_status == "user"
+  end
+
   def update_user_score
     self.score = self.memes.inject(0) { |sum, meme| sum + meme.score }
     self.save

@@ -19,6 +19,13 @@ group :development, :test do
 end
 
 gem "omniauth-google-oauth2"
+gem "cancan"
+gem 'thin'
+
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem "slim-rails"
+gem 'whenever', require: false
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -10,9 +10,4 @@ class SessionController < ApplicationController
     session.clear
     redirect_to root_path
   end
-
-  def google_callback
-    session.clear
-  end
-    
 end

@@ -7,10 +7,21 @@
 
 = button_tag "Test button", :id => 'upload'
 
-= form_for @meme do |f|
-  = f.label :url, "Upload Your MEME!:"
-  = f.filepicker_field :url
-  = f.submit
+- if can? :create, Meme
+  = form_for @meme do |f|
+    = f.label :url, "Upload Your MEME!:"
+    = f.filepicker_field :url
+    = f.submit
+
+%p{:style => "background-color:red"}
+  internal note: you can only see the pick file and create meme buttons after you sign in; you can delete photos if you have auth_status of "admin"; you currently have to change admin status manually
+
+- unless current_user
+  %a{:href => "/auth/google_oauth2"}
+    %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}/
+- else
+  %p= "Welcome, " + current_user.full_name
+  = link_to "Sign out", log_out_user_path(current_user)
 
 .container
   - @memes.each do |meme|

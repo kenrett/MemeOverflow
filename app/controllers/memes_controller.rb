@@ -9,7 +9,7 @@ class MemesController < ApplicationController
 
   def create
     p params
-    @user = current_user # change this to work with session
+    @user = current_user
     @meme = Meme.new(url: params[:url])
     @meme.update_attributes(:creator_id => @user.id)
     if @meme.save
@@ -21,5 +21,8 @@ class MemesController < ApplicationController
   end
 
   def destroy
+    @meme = Meme.find(params[:id])
+    @meme.destroy
+    redirect_to :root
   end
 end
