@@ -9,9 +9,12 @@ class Vote < ActiveRecord::Base
 
   scope :up_votes, where(vote_type: "up")
   scope :down_votes, where(vote_type: "down")
+  scope :admin_up_votes, where(vote_type: "admin_up")
+  scope :admin_down_votes, where(vote_type: "admin_down")
 
 
   def update_scores
+    p self.id
     VotesWorker.perform_async(self.id)
   end
 

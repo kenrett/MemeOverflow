@@ -5,10 +5,14 @@
 - if flash[:notice]
   %p= flash[:notice]
 
-= form_for @meme do |f|
-  = f.label :url, "Upload Your MEME!:"
-  = f.filepicker_field :url
-  = f.submit
+- if can? :create, Meme
+  = form_for @meme do |f|
+    = f.label :url, "Upload Your MEME!:"
+    = f.filepicker_field :url
+    = f.submit
+
+%p{:style => "background-color:red"}
+  internal note: you can only see the pick file and create meme buttons after you sign in; you can delete photos if you have auth_status of "admin"; you currently have to change admin status manually
 
 - unless current_user
   %a{:href => "/auth/google_oauth2"}

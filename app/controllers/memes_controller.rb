@@ -21,5 +21,8 @@ class MemesController < ApplicationController
   end
 
   def destroy
+    @meme = Meme.find(params[:id])
+    @meme.destroy
+    redirect_to :root
   end
 end

@@ -28,6 +28,10 @@ class Meme < ActiveRecord::Base
   end
 
   def calculate_point
-    votes.up_votes.count - votes.down_votes.count    
+    votes.up_votes.count - votes.down_votes.count + calculate_admin_point
+  end
+
+  def calculate_admin_point
+    (votes.admin_up_votes.count * rand(25) )  - (votes.admin_down_votes.count * rand(25) )
   end
 end
