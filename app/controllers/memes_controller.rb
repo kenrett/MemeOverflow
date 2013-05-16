@@ -4,6 +4,7 @@ class MemesController < ApplicationController
   end  
 
   def show
+    @meme = Meme.find(params[:id])
   end
 
   def create
