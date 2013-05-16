@@ -25,4 +25,20 @@ describe Meme do
       meme.score.should == new_score
     end
   end
+
+  context "on upload" do
+    let!(:meme) { Meme.new(url: 'http://www.example.com', creator_id: 1) }
+
+    it "should change slug from nil to 8 character securerandom" do
+      meme.save
+      meme.slug.length.should eq(8)
+    end
+
+    it "shouldn't have a slug before create" do
+      meme.slug.should eq(nil)
+    end
+  end
 end
+
+
+

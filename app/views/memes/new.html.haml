@@ -1,9 +1,4 @@
-%h1 Home#index
-- if flash[:error]
-  %p= flash[:error]
-
-- if flash[:notice]
-  %p= flash[:notice]
+%h1 Upload
 
 = form_for @meme do |f|
   = f.label :url, "Upload Your MEME!:"

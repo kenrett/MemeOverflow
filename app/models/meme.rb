@@ -3,7 +3,7 @@ class Meme < ActiveRecord::Base
   has_many :votes
   attr_accessible :score, :slug, :url, :creator_id, :creator
 
-  before_create :to_slug
+  before_save :create_slug
 
 
   def update_meme_score
@@ -14,7 +14,7 @@ class Meme < ActiveRecord::Base
 
   private
 
-  def to_slug
+  def create_slug
     self.slug = SecureRandom.hex(4)
   end
   
