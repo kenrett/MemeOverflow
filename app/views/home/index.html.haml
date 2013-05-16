@@ -9,3 +9,7 @@
   = f.label :url, "Upload Your MEME!:"
   = f.filepicker_field :url
   = f.submit
+
+.container
+  - @memes.each do |meme|
+    = render_meme_box(meme)
