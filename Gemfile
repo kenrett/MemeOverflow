@@ -10,6 +10,7 @@ gem 'filepicker-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'guard'
   gem 'rb-fsevent', '~> 0.9'
   gem 'guard-rspec'
