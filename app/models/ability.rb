@@ -3,7 +3,6 @@ class Ability
 
     def initialize(user)
         alias_action :ban, :change_status ,:promote_to_admin, :to => :super
-        # guest user (not logged in)
         user ||= User.new(auth_status: "visitor")
         if user.super?
             can :manage, :all

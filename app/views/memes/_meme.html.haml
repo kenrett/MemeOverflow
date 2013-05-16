@@ -1,14 +1,16 @@
-.meme-box
+.meme-box.span4
   %h1 your photo
   - if can? :destroy, meme
     = link_to "Delete", meme_path(meme), :method=>:delete
-  = image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"
+  = link_to (image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"), meme
   = form_tag vote_create_meme_path(meme) do
     - if can? :manage, :all
       = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
       = button_tag "Admin Downvote", :name => "vote_type", :value => "admin_down"
     - if can? :create, Vote  
       = button_tag "Upvote", :name => "vote_type", :value => "up", :class => "btn"
-      = meme.score
+      %span.meme-score= meme.score
       = button_tag "Downvote", :name => "vote_type", :value => "down", :class => "btn"
-
+      .social-box
+        = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo')
+        %span Tweet me!

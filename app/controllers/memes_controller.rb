@@ -8,9 +8,8 @@ class MemesController < ApplicationController
   end
 
   def create
-    p params
     @user = current_user
-    @meme = Meme.new(params[:meme])
+    @meme = Meme.new(url: params[:url])
     @meme.update_attributes(:creator_id => @user.id)
     if @meme.save
       flash[:notice] = "thanks for uploading a meme to MemeOverflow!"

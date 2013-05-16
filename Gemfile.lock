@@ -203,6 +203,7 @@ GEM
       railties (~> 3.0)
       slim (~> 1.0)
     slop (3.4.4)
+    social-share-button (0.1.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   sidekiq
   sinatra
   slim-rails
+  social-share-button
   thin
   uglifier (>= 1.0.3)
   whenever
