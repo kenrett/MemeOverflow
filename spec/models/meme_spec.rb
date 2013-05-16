@@ -26,15 +26,13 @@ describe Meme do
   end
 
   context "on upload" do
-    let!(:meme) { Meme.new(url: 'http://www.example.com', creator_id: 1) }
 
-    it "should change slug from nil to 8 character securerandom" do
-      meme.save
-      meme.slug.length.should eq(8)
+    it "should have slug with 8 characters" do
+      memebysam.slug.length.should eq(8)
     end
 
-    it "shouldn't have a slug before create" do
-      meme.slug.should eq(nil)
+    it "should have a url" do
+      memebysam.url.should_not eq(nil)
     end
   end
 end
