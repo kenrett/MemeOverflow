@@ -11,5 +11,6 @@
     = button_tag "Upvote", :name => "vote_type", :value => "up"
     %span.meme-score= meme.score
     = button_tag "Downvote", :name => "vote_type", :value => "down"
-    = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo')
-
+    .social-box
+      = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo') 
+      %span Tweet me!
