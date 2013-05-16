@@ -18,6 +18,7 @@ group :development, :test do
   gem 'better_errors'
 end
 
+gem "omniauth-google-oauth2"
 
 # Gems used only for assets and not required
 # in production environments by default.
