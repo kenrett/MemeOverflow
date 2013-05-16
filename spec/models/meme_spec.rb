@@ -34,6 +34,7 @@ describe Meme do
     it "should have a url" do
       memebysam.url.should_not eq(nil)
     end
+
   end
 end
 
