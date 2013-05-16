@@ -7,7 +7,7 @@ class Meme < ActiveRecord::Base
 
 
   def update_meme_score
-    self.score = calculate_score
+    self.score = calculate_point
     self.save!
   end
 
@@ -19,6 +19,13 @@ class Meme < ActiveRecord::Base
   end
   
   def calculate_score
-    votes.up_votes.count - votes.down_votes.count
+    points = calculate_point
+    time_since_submission_in_hours = (Time.now - self.created_at) / 3600
+    gravity = 0.5
+    (points - 1) / (time_since_submission_in_hours + 2) ** gravity
+  end
+
+  def calculate_point
+    votes.up_votes.count - votes.down_votes.count    
   end
 end

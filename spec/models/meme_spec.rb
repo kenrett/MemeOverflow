@@ -16,7 +16,7 @@ describe Meme do
     it "updates the score the the value of calculate_score" do
       new_score = 500
       meme = create(:meme)
-      meme.stub(:calculate_score).and_return new_score
+      meme.stub(:calculate_point).and_return new_score
 
       meme.update_meme_score
       

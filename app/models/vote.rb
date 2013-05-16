@@ -11,8 +11,9 @@ class Vote < ActiveRecord::Base
   scope :down_votes, where(vote_type: "down")
 
   def update_scores
-    self.meme.update_meme_score
-    self.meme.creator.update_user_score
+    VotesWorker.perform_async(self.id)    
+    # self.meme.update_meme_score
+    # self.meme.creator.update_user_score
   end
 
 end

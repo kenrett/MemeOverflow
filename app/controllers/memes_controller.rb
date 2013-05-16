@@ -8,7 +8,8 @@ class MemesController < ApplicationController
   end
 
   def create
-    @user = User.last # change this to work with session
+    p params
+    @user = current_user
     @meme = Meme.new(params[:meme])
     @meme.update_attributes(:creator_id => @user.id)
     if @meme.save
