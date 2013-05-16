@@ -3,6 +3,7 @@ class Vote < ActiveRecord::Base
   belongs_to :voter, class_name: "User", foreign_key: "voter_id"
   attr_accessible :vote_type, :meme_id, :voter_id
 
+  before_save :downcase_vote_type
   after_save :update_scores
 
   validates_uniqueness_of :voter_id, :scope => :meme_id
@@ -14,8 +15,14 @@ class Vote < ActiveRecord::Base
 
 
   def update_scores
-    p self.id
-    VotesWorker.perform_async(self.id)
+    self.meme.update_meme_score
+    self.meme.creator.update_user_score
+    # p self.id
+    # VotesWorker.perform_async(self.id)
+  end
+
+  def downcase_vote_type
+    self.vote_type = vote_type.downcase
   end
 
 end
