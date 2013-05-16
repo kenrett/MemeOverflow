@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515185444) do
+ActiveRecord::Schema.define(:version => 20130515231213) do
 
   create_table "memes", :force => true do |t|
     t.string   "url",                       :null => false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130515185444) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.string   "type",       :null => false
+    t.string   "vote_type",  :null => false
     t.integer  "meme_id"
     t.integer  "voter_id"
     t.datetime "created_at", :null => false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130515185444) do
   end
 
   add_index "votes", ["meme_id"], :name => "index_votes_on_meme_id"
+  add_index "votes", ["voter_id", "meme_id"], :name => "index_votes_on_voter_id_and_meme_id", :unique => true
   add_index "votes", ["voter_id"], :name => "index_votes_on_voter_id"
 
 end
