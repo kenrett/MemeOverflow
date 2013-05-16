@@ -1,6 +1,7 @@
 MemeOverflow::Application.routes.draw do
+  match '/auth/google_oauth2/callback' => "session#create"
 
-  root :to => 'home#index'  
+  root :to => 'home#index'
 
   resources :user do 
     member do

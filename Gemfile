@@ -15,6 +15,7 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
+gem "omniauth-google-oauth2"
 
 # Gems used only for assets and not required
 # in production environments by default.
