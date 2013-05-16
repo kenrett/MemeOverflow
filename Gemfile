@@ -13,6 +13,8 @@ group :development, :test do
   gem 'guard'
   gem 'rb-fsevent', '~> 0.9'
   gem 'guard-rspec'
+  gem 'quiet_assets'
+  gem 'better_errors'
 end
 
 
