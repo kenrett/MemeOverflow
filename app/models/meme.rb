@@ -3,14 +3,16 @@ class Meme < ActiveRecord::Base
   has_many :votes
   attr_accessible :score, :slug, :url, :creator_id, :creator
 
-  before_save :create_slug
+  before_create :create_slug
 
+  def self.cache_scores
+    puts "whenever run"
+  end
 
   def update_meme_score
     self.score = calculate_point
     self.save!
   end
-
 
   private
 
