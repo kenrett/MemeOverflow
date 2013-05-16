@@ -12,11 +12,11 @@ class VotesController < ApplicationController
     
   end
 
-  def destroy
-    vote = Vote.find(params[:id])
-    vote.destroy
-    redirect_to :root, flash[:notice] = "Your vote has been deleted!"
-  end
+  # def destroy
+  #   vote = Vote.find(params[:id])
+  #   vote.destroy
+  #   redirect_to :root, flash[:notice] = "Your vote has been deleted!"
+  # end
 
   private
   def create_or_update_vote(vote, params, session)
