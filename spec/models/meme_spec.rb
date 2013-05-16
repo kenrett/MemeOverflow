@@ -18,7 +18,6 @@ describe Meme do
       meme = create(:meme)
       meme.stub(:calculate_score).and_return new_score
 
-
       meme.update_meme_score
       
       meme.reload
