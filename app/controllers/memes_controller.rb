@@ -8,8 +8,9 @@ class MemesController < ApplicationController
   end
 
   def create
-    @user = User.last # change this to work with session
-    @meme = Meme.new(params[:meme])
+    p params
+    @user = current_user # change this to work with session
+    @meme = Meme.new(url: params[:url])
     @meme.update_attributes(:creator_id => @user.id)
     if @meme.save
       flash[:notice] = "thanks for uploading a meme to MemeOverflow!"

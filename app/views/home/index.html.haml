@@ -5,6 +5,8 @@
 - if flash[:notice]
   %p= flash[:notice]
 
+= button_tag "Test button", :id => 'upload'
+
 = form_for @meme do |f|
   = f.label :url, "Upload Your MEME!:"
   = f.filepicker_field :url
