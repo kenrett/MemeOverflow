@@ -37,6 +37,3 @@ describe Meme do
 
   end
 end
-
-
-
