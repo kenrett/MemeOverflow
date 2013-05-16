@@ -1,0 +1,24 @@
+.top-nav {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #bada55;
+  line-height: 50px;
+  margin: 0 auto;
+  padding-left: 20px;
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+  }
+}
+
+
+.container {
+  padding: 60px 10px 0 20px;
+}
+
+body{
+  margin: 0;
+}
