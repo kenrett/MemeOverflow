@@ -4,6 +4,14 @@ FactoryGirl.define do
     sequence(:email) {|n| "email-#{n}-#{Time.now.to_i}@example.com"  }
   end
 
+  factory :admin, :parent => :user do
+    auth_status "admin"
+  end
+
+  factory :super, :parent => :user do
+    auth_status "super"
+  end
+
   factory :meme do
     url "http://google.com"
     creator
