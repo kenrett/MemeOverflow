@@ -15,7 +15,7 @@ class Ability
             can :create, :all
 
             can :destroy, Meme, :creator => user
-            can :update, Vote, :voter => user
+            can :update, Vote, :voter_id => user.id
 
             cannot :create, Vote, :vote_type => "admin_up"
             cannot :create, Vote, :vote_type => "admin_down"

@@ -11,10 +11,7 @@ MemeOverflow::Application.routes.draw do
   end 
 
   resources :memes do
-    member do
-      post "vote/create"
-      put "vote/update"
-    end
+    resources :votes, :only => [:new, :update, :create, :destroy]
   end
 
   # The priority is based upon order of creation:

@@ -19,16 +19,16 @@ describe 'User' do
 
     it "can upvote a meme by clicking the upvote button" do 
       visit root_path
-      find(".meme-score").text.should eq "0"
-      click_on('up')
-      find(".meme-score").text.should eq "1"
+      first(".meme-score").text.should eq "0"
+      first('button', :text => "Upvote").click
+      first(".meme-score").text.should eq "1"
     end
 
     it "can downvote a meme by clicking the downvote button" do
       visit root_path
-      find(".meme-score").text.should eq "0"
-      click_on('down')
-      find(".meme-score").text.should eq "-1"
+      first(".meme-score").text.should eq "0"
+      first('button', :text => "Downvote").click
+      first(".meme-score").text.should eq "-1"
     end
   end  
 end
