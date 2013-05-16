@@ -5,8 +5,8 @@ MemeOverflow::Application.routes.draw do
 
   resources :user do 
     member do
-     get "log_out" => "sessions#destroy", :as => "log_out"
-     get "log_in" => "sessions#create", :as => "log_in"
+     get "log_out" => "session#destroy", :as => "log_out"
+     get "log_in" => "session#create", :as => "log_in"
     end
   end 
 

@@ -10,9 +10,15 @@
   = f.filepicker_field :url
   = f.submit
 
-%a{:href => "/auth/google_oauth2"}
-  %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}/
+- unless current_user
+  %a{:href => "/auth/google_oauth2"}
+    %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}/
+- else
+  %p= "Welcome, " + current_user.full_name
+  = link_to "Sign out", log_out_user_path(current_user)
 
 .container
   - @memes.each do |meme|
     = render_meme_box(meme)
+
+
