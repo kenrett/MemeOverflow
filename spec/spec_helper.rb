@@ -39,6 +39,17 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+    :provider => "google",
+    :uid => '9999',
+    :info => {
+      :name => "ABCXYZ",
+      :email => "abc@abc.com"
+    },
+    :credentials => {:token => "token-twitter"}
+    })
+
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of

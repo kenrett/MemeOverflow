@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user, :aliases => [:voter, :creator] do
     full_name 'ed shadi'
     sequence(:email) {|n| "email-#{n}-#{Time.now.to_i}@example.com"  }
+    uid "1234"
   end
 
   factory :admin, :parent => :user do
