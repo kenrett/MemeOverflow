@@ -5,6 +5,8 @@ class Meme < ActiveRecord::Base
 
   before_create :create_slug
 
+  scope :latest_20_memes, order("created_at DESC").limit(20)
+
   def self.cache_scores
     puts "whenever run"
   end

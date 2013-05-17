@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PresentMemes do
+describe PresentMeme do
   pending "add some examples to (or delete) #{__FILE__}"
 end

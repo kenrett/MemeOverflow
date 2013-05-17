@@ -1,41 +1,54 @@
 class PresentMemesController < ApplicationController
 
-
   def show
-    order = PresentMeme.last.parse
-    next_meme = order.first
-    @meme = Meme.find(next_meme)
+    if Meme.count == 0
+      flash[:notice] = "There is currently no meme in the database"
+    else
+      next_meme_id = retrieve_current_order.first
+      @meme = Meme.find(next_meme_id)
+    end
     respond_to do |format|
       format.html { render :layout => false}
     end
-
   end
 
   def next
-    retrieve_last_order
-    find_or_create_new_order_and_change_next_meme_index
-    @meme = Meme.find(order[next_meme_index])
+    current_order = retrieve_current_order
+    @meme = find_next_meme(current_order)
     render :json => { :url => @meme.url, :id => @meme.id }
   end
 
 private
   
-  def retrieve_last_order
-    last_order = PresentMeme.last.parse
-  end
-
-  def find_or_create_new_order_and_change_next_meme_index
-      if last_order.last == params[:id].to_i
-      generate_new_order
-      next_meme_index = 0
+  def retrieve_current_order
+    if current_order = PresentMeme.last
+      current_order.parse     
     else
-      order = last_order
-      next_meme_index = order.index(params[:id].to_i) + 1
+      generate_new_order
     end
   end
-
+  
   def generate_new_order
-    order = PresentMeme.produce_new_order.parse
+    PresentMeme.produce_new_order.parse
   end
 
+  def find_next_meme(current_order)
+    if last_meme?(current_order)
+      order = generate_new_order
+      next_meme_index = 0
+    else
+      order = current_order
+      next_meme_index = order.index(params[:id].to_i) + 1
+    end
+    next_meme_id = next_meme_id(order, next_meme_index)
+    Meme.find(next_meme_id)
+  end
+
+  def next_meme_id(order, next_meme_index)
+    order[next_meme_index]
+  end
+
+  def last_meme?(current_order)
+    current_order.last == params[:id].to_i
+  end
 end

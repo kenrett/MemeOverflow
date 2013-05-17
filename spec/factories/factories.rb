@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :meme do
-    url "http://google.com"
+    url "https://www.filepicker.io/api/file/e80Be50XRJq5i4ivDiUk/"
     creator
   end
 
