@@ -1,3 +1,26 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// div.meme-box.span4 a.meme-box-delete{
+//   // display: none;
+// }
+
+div.meme-box.span4 a.meme-box-delete{
+  // display: inline-block;
+  position: relative;
+  top: 7px;
+  right: -98%;
+  // filter:alpha(opacity=0);
+  // opacity:1;
+
+}
+
+
+div.meme-box.span4{
+
+}
+
+.meme-box img {
+  width: 90%;
+}

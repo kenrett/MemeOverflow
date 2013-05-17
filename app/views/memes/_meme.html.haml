@@ -1,8 +1,9 @@
-.meme-box.span4
-  %h1 your photo
+.meme-box.span4.img-polaroid
   - if can? :destroy, meme
-    = link_to "Delete", meme_path(meme), :method=>:delete
-  = link_to (image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"), meme
+    %a.meme-box-delete{:href => meme_path(meme), "data-method" => "delete", :title => "Delete this meme","data-confirm"=>"Are you sure you want to delete this meme?"}
+      %span.icon-remove-sign
+
+  = link_to (image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image", :class => "img-polaroid"), meme
   = form_tag meme_votes_path(meme) do
     - if can? :manage, :all
       = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
