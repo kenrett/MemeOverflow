@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
   def create
     find_or_create_user_by_uid
-    puts "this is my user object: #{@user}"
     login(@user)
   end
 
