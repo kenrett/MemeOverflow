@@ -5,7 +5,10 @@ class User < ActiveRecord::Base
 
   validate :valid_auth_status?
 
+  after_create :send_notification
+
   STATUS = ["user", "admin", "super", "banned", "visitor"]
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.uid = auth["uid"]
@@ -16,7 +19,7 @@ class User < ActiveRecord::Base
 
   STATUS.each do |status|
     define_method "#{status}?" do
-      self.auth_status == status    
+      self.auth_status == status
     end
 
     define_method "change_to_#{status}" do
@@ -28,7 +31,13 @@ class User < ActiveRecord::Base
     self.update_attributes( :score => self.memes.inject(0) { |sum, meme| sum + meme.score } )
   end
 
+  private
+
   def valid_auth_status?
     errors.add(:auth_status, "must be a valid status.") unless STATUS.include?(self.auth_status)
+  end
+
+  def send_notification
+    UserMailer.signup_confirmation(self).deliver
   end
 end
