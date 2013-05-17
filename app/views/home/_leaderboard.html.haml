@@ -3,4 +3,5 @@
   %p the top 10 users
   %ol
   -@leaders.each do |leader|
-    %li= leader.full_name
+    %li= leader.full_name 
+    = leader.score
