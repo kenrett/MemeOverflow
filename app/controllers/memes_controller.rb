@@ -1,7 +1,7 @@
 class MemesController < ApplicationController
   def new
     @meme = Meme.new
-  end  
+  end
 
   def show
     @meme = Meme.find(params[:id])
@@ -16,8 +16,7 @@ class MemesController < ApplicationController
     else
       flash[:error] = @meme.errors.full_messages.join(', ')
     end
-    redirect_to :root
-    # render :json => render_to_string(:partial => "memes/meme", locals => { :meme => @meme })
+    render :json => render_to_string(:partial => "memes/meme", :locals => { :meme => @meme })
   end
 
   def destroy
