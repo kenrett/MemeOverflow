@@ -9,4 +9,5 @@
     =render_presenter_box(@meme)
     =form_tag("/present_memes/next", :method => "get") do
       =hidden_field_tag :id, @meme.id.to_s
+    %span Courtesy of dbcmemes.com
 
