@@ -14,10 +14,8 @@ function openFilePicker() {
     },
     function(FPFiles){
       $.each(FPFiles, function(index, FPFile){
-        $.post('memes', FPFile).done(function() {
-          alert("done");
-          debugger
-          // $('div.container').append(data);
+        $.post('memes', FPFile).always(function(data) {
+          $('div.gallery div.row').prepend(data.responseText);          
         });
       });
     },
