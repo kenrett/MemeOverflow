@@ -1,6 +1,6 @@
 module Authentication
-  def login user
-    session[:user_id] = user.id
+  def login(user)
+    session[:id] = user.id
     redirect_to root_path, :notice => "Signed in!"
   end
 
