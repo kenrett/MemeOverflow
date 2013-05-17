@@ -3,9 +3,8 @@ class PresentMemesController < ApplicationController
 
   def show
     order = PresentMeme.last.parse
-    next_meme = order.index(1)
-
-    @meme = Meme.find(order[next_meme])
+    next_meme = order.first
+    @meme = Meme.find(next_meme)
     respond_to do |format|
       format.html { render :layout => false}
     end
@@ -15,7 +14,6 @@ class PresentMemesController < ApplicationController
   def next
     retrieve_last_order
     find_or_create_new_order_and_change_next_meme_index
-
     @meme = Meme.find(order[next_meme_index])
     render :json => { :url => @meme.url, :id => @meme.id }
   end
