@@ -1,4 +1,4 @@
 .container
-  %h1= @user.full_name
+  %h1= "Memes uploaded by #{@user.full_name}"
   - @memes.each do |meme|
     = render_meme_box(meme)
