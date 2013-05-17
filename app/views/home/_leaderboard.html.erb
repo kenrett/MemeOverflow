@@ -1,0 +1,16 @@
+<div class="leaderboard">
+  <h2>Leaderboard</h2>
+  <p>the top 10 users</p>
+  <table>
+    <tr>
+      <th>username</th>
+      <th>score</th>
+    </tr>
+  <% @leaders.each do |leader| %>
+    <tr>
+      <td> <%= link_to leader.full_name, leader %></td> 
+      <td><%= leader.score %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
