@@ -8,7 +8,6 @@
   %body
     .presenter-body
       =render_presenter_box(@meme)
-      =form_tag("/present_memes/next", :method => "get") do
-        =hidden_field_tag :id, @meme.id.to_s
+
     
 
