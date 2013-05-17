@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516011851) do
+ActiveRecord::Schema.define(:version => 20130517051714) do
 
   create_table "memes", :force => true do |t|
     t.string   "url",                       :null => false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130516011851) do
   create_table "votes", :force => true do |t|
     t.string   "vote_type",  :null => false
     t.integer  "meme_id"
-    t.integer  "voter_id"
+    t.integer  "voter_id",   :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
