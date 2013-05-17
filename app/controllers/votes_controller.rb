@@ -1,10 +1,12 @@
 class VotesController < ApplicationController
   def create
-    @vote = Vote.where(voter_id: session[:id], meme_id: params[:meme_id]).first
-
-    create_or_update_vote(@vote, params, session)
-
-    redirect_to :root
+    if current_user
+      @vote = Vote.where(voter_id: session[:id], meme_id: params[:meme_id]).first
+      create_or_update_vote(@vote, params, session)
+      redirect_to :root
+    else
+      redirect_to "/auth/google_oauth2"
+    end
   end
 
 #is this useless now? our create method is doing both a update and create 
