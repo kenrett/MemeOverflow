@@ -1,1 +1,6 @@
-%h2 Leaderboard
+.leaderboard
+  %h2 Leaderboard
+  %p the top 10 users
+  %ol
+  -@leaders.each do |leader|
+    %li= leader.full_name
