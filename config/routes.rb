@@ -1,4 +1,6 @@
 MemeOverflow::Application.routes.draw do
+  get "present_memes/show"
+  get "present_memes/next"
   match '/auth/google_oauth2/callback' => "session#create"
   root :to => 'home#index'
 
