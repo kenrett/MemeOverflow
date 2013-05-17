@@ -10,6 +10,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include CapybaraHelpers
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -38,17 +39,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
-    :provider => "google",
-    :uid => '9999',
-    :info => {
-      :name => "ABCXYZ",
-      :email => "abc@abc.com"
-    },
-    :credentials => {:token => "token-twitter"}
-    })
 
 
   # If true, the base class of anonymous controllers will be inferred

@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_or_create_user_by_uid auth
+    User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
+  end
+
   STATUS.each do |status|
     define_method "#{status}?" do
       self.auth_status == status    
@@ -31,4 +35,6 @@ class User < ActiveRecord::Base
   def valid_auth_status?
     errors.add(:auth_status, "must be a valid status.") unless STATUS.include?(self.auth_status)
   end
+
+
 end

@@ -1,12 +1,8 @@
 class SessionController < ApplicationController
+
   def create
-    auth = request.env["omniauth.auth"]
-    user = User.find_by_uid(auth["uid"])
-    unless user
-      user = User.create_with_omniauth(auth)
-      # UserMailer.signup_confirmation(user).deliver
-    end
-    session[:id] = user.id
+    user = User.find_or_create_user_by_uid(request.env["omniauth.auth"])
+    login(user)
     redirect_to root_path, :notice => "Signed in!"
   end
 
