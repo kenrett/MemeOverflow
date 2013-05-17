@@ -1,4 +1,12 @@
-.container
-  =render_meme_box(@meme)
-=form_tag("/present_memes/next", :method => "get") do
-  =hidden_field_tag :id, @meme.id.to_s
+%html
+  %head
+    %title MemeOverflow
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = filepicker_js_include_tag
+    = csrf_meta_tags
+  %body
+    =render_presenter_box(@meme)
+    =form_tag("/present_memes/next", :method => "get") do
+      =hidden_field_tag :id, @meme.id.to_s
+

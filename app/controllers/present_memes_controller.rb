@@ -5,6 +5,10 @@ class PresentMemesController < ApplicationController
     order = PresentMeme.last.parse
     next_meme = order.index(1)
     @meme = Meme.find(order[next_meme])
+    respond_to do |format|
+      format.html { render :layout => false}
+    end
+
   end
 
   def next
