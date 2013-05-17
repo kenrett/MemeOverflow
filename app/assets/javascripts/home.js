@@ -16,7 +16,6 @@ function openFilePicker() {
       $.each(FPFiles, function(index, FPFile){
         $.post('memes', FPFile).done(function() { 
           location.reload();
-          alert("Your image has been posted!") 
         });
       });
     },
