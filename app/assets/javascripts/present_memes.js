@@ -8,7 +8,7 @@ $(document).ready(function() {
       $("div.present-meme-box").children().attr("src",data.url)
       $("form input#id").val(data.id)
       });
-},5000);
+},1000);
     // });
 
   });

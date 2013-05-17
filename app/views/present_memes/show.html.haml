@@ -6,6 +6,9 @@
     = filepicker_js_include_tag
     = csrf_meta_tags
   %body
+  - if flash[:notice]
+    %p= flash[:notice]
+  - else
     .presenter-body
       =render_presenter_box(@meme)
 

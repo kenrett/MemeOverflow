@@ -6,9 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-sam = User.create(full_name: "samskies", email: "samsamskies@gmail.com")
-sidney = User.create(full_name: "sidney", email: "sidney@gmail.com")
-
-
-Meme.create(url: "www.google.com", creator: sam)
+Meme.create(url: "https://www.filepicker.io/api/file/e80Be50XRJq5i4ivDiUk", creator: FactoryGirl.create(:user))
