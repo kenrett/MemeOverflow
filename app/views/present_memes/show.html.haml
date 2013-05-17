@@ -6,8 +6,9 @@
     = filepicker_js_include_tag
     = csrf_meta_tags
   %body
-    =render_presenter_box(@meme)
-    =form_tag("/present_memes/next", :method => "get") do
-      =hidden_field_tag :id, @meme.id.to_s
-    %span Courtesy of dbcmemes.com
+    .presenter-body
+      =render_presenter_box(@meme)
+      =form_tag("/present_memes/next", :method => "get") do
+        =hidden_field_tag :id, @meme.id.to_s
+    
 

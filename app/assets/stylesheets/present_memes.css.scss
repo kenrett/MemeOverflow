@@ -2,15 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+.presenter-body {
   background-color: black;
 }
 
 .present-meme-box img {
   height:90%;
+  margin-top: .5%;
 }
 
 span{
+  margin-top: 10px;
   display:block;
   width: 100%;
   text-align: center;
