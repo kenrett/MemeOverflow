@@ -1,22 +1,23 @@
-.meme-box.span4.img-polaroid
+.meme-box.span4
   - if can? :destroy, meme
     %a.meme-box-delete{:href => meme_path(meme), "data-method" => "delete", :title => "Delete this meme","data-confirm"=>"Are you sure you want to delete this meme?"}
       %span.icon-remove-sign
-
-  = link_to (image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image", :class => "img-polaroid"), meme
-  = form_tag meme_votes_path(meme) do
-    - if can? :manage, :all
-      = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
-      = button_tag "Admin Downvote", :name => "vote_type", :value => "admin_down"
-    - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "up").empty?
-      = button_tag "Upvote", :name => "vote_type", :value => "up", :class => "btn"
-    - else
-      = button_tag "Upvote", :name => "vote_type", :value => "", :class => "btn btn-success"
-    %span.meme-score= meme.score
-    - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "down").empty?
-      = button_tag "Downvote", :name => "vote_type", :value => "down", :class => "btn"
-    - else
-      = button_tag "Downvote", :name => "vote_type", :value => "", :class => "btn btn-success"
+  .img-container
+    = link_to (image_tag meme.url+ "/convert?w=300&h=300", :alt => "alternate text for a image"), meme
     .social-box
-      = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo')
-      %span Tweet me!
+      = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo') 
+  .buttons-container.pagination-centered
+    = form_tag meme_votes_path(meme) do
+      - if can? :manage, :all
+        = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
+        = button_tag "Admin Downvote", :name => "vote_type", :value => "admin_down"
+      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "up").empty?
+        = button_tag "Upvote", :name => "vote_type", :value => "up", :class => "btn"
+      - else
+        = button_tag "Upvote", :name => "vote_type", :value => "", :class => "btn btn-success"
+      %span.meme-score= meme.score
+      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "down").empty?
+        = button_tag "Downvote", :name => "vote_type", :value => "down", :class => "btn"
+      - else
+        = button_tag "Downvote", :name => "vote_type", :value => "", :class => "btn btn-success"
+      

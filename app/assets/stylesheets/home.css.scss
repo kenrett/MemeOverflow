@@ -6,6 +6,12 @@
 //   // display: none;
 // }
 
+div.meme-box .img-container {
+  height: 300px;
+  line-height: 300px;
+  margin-bottom: 10px;
+}
+
 div.meme-box.span4 a.meme-box-delete{
   // display: inline-block;
   position: relative;
@@ -13,14 +19,15 @@ div.meme-box.span4 a.meme-box-delete{
   right: -98%;
   // filter:alpha(opacity=0);
   // opacity:1;
-
 }
 
-
-div.meme-box.span4{
-
+div.social-box {
+  position: relative;
+  top: -124px;
+  right: -6%;
 }
 
-.meme-box img {
-  width: 90%;
+div.meme-box.span4 img {
+ width: 100%;
 }
+
