@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
     @meme = Meme.new
-    @memes = Meme.includes(:votes).all
+    @memes = Meme.order("score DESC").includes(:votes).all
   end
 end
