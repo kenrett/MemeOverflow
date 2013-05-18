@@ -16,5 +16,5 @@
       - if current_user == nil || @user_votes[meme.id] != "down"
         = button_tag "Downvote", :id => "down#{meme.id}",:name => "vote_type", :value => "down", :class => "btn"
       - else
-        = button_tag "Downvote", :id => "no_down#{meme.id}" :name => "vote_type", :value => "no_down", :class => "btn btn-success"
+        = button_tag "Downvote", :id => "no_down#{meme.id}", :name => "vote_type", :value => "no_down", :class => "btn btn-success"
         

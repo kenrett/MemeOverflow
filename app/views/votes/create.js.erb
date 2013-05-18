@@ -2,63 +2,71 @@ var memeId = '<%= @vote.meme_id %>';
 var voteType = '<%= @vote.vote_type %>';
 var clickedBtn = $("#<%= @vote.vote_type %><%= @vote.meme_id %>");
 var clickedBtnSibling = clickedBtn.siblings(".btn");
+var memeScoreObj = clickedBtn.siblings('.meme-score');
+var memeScoreVal = parseInt(memeScoreObj.text()); // might be tripping us up
 function select(button) {
   return button.hasClass('btn-success');
 }
+function newScore(memeScoreVal, changeVal) {
+  return (memeScoreVal + changeVal).toString();
+}
+  
 
 // console.log(select(clickedBtn));
 // console.log(select(clickedBtnSibling));
 
 var selectedArray = [select(clickedBtn), select(clickedBtnSibling)]
-console.log(selectedArray);
+console.log(memeScoreVal);
+console.log(typeof memeScoreVal);
+
+
+
 
 // console.log(isSelected);
 // console.log(memeId);
 // console.log(voteType);
 
 $(document).on('ajax:success', function(data, status, xhr){
-  $(clickedBtn).toggleClass('btn-success').attr('value', '');
+  if ($.inArray(true, selectedArray) === -1)
+  {
+    $(clickedBtn).removeClass().addClass('btn btn-success').attr({value: 'no_' + voteType, id: 'no_' + voteType + memeId });
+    if (voteType === 'up')
+    {
+      memeScoreObj.text(newScore(memeScoreVal, 1));
+    } 
+    else 
+    {
+      memeScoreObj.text(newScore(memeScoreVal, -1));
+    }
+  }
+  else
+  {
+    if (voteType.indexOf('no') === -1)
+    {
+      $(clickedBtn).addClass('btn-success').attr({value: 'no_' + voteType, id: 'no_' + voteType + memeId });
+      if (voteType === 'up') 
+      {
+        $(clickedBtnSibling).removeClass('btn-success').attr({value: 'down', id: 'down' + memeId });
+        memeScoreObj.text(newScore(memeScoreVal, 2));
+      }
+      else
+      {
+        $(clickedBtnSibling).removeClass('btn-success').attr({value: 'up', id: 'up' + memeId });
+        memeScoreObj.text(newScore(memeScoreVal, -2));
+      }
+    }
+    else
+    {
+      if (voteType === 'no_up')
+      {
+        $(clickedBtn).removeClass('btn-success').attr({value: 'up', id: 'up' + memeId });
+        memeScoreObj.text(newScore(memeScoreVal, -1));
+      }
+      else
+      {
+        $(clickedBtn).removeClass('btn-success').attr({value: 'down', id: 'down' + memeId });
+        memeScoreObj.text(newScore(memeScoreVal, 1));
+      }
+    }
+  }
 });
-
-
-
-
-
-
-// if both unselected and click up: (vote_type = up), sA = [false, false]
-  // toggle up button to have class btn-success
-  // set value of up button to no_up
-  $(clickedBtn).toggleClass('btn-success').attr('value', 'no_up');
-  // .meme_score needs to have value + 1
-// if both unselected and click down: (vote_type = down), sA = [false, false]
-  // toggle down button to have class btn-success
-  // set value of down button to no_down
-  // .mem needs to have value - 1
-
-
-
-// if up selected and click down: (vote_type = down), sA = [true, false]
-  // toggle up button to not have class btn-success &   // set value of up button to up
-  // toggle down button to have class btn-success & set value of down button to no_down
-  $(clickedBtn).toggleClass('btn-success').attr('value', 'no_up');
-
-  // 
-  // .meme_score needs to have value - 2
-// if down selected and click up: (vote_type = up), sA = [false, true]
-  // toggle up button to have class btn-success
-  // toggle down button to not have class btn-success
-  // set value of up button to no_up
-  // set value of down button to down
-  // .meme_score needs to have value + 2
-
-
-
-// if up selected and click up: (vote_type = no_up), sA = [true, false]
-  // toggle up button to not have class btn-success
-  // set value of up button to up
-  // .meme_score needs to have value - 1
-  
-// if down selected and click down: (vote_type = no_down), sA = [false, true]
-  // toggle down button to not have class btn-success
-  // set value of down button to down
-  // .meme_score needs to have value + 1
