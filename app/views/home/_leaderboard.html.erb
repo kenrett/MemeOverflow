@@ -1,16 +1,18 @@
-<!-- <div class="leaderboard">
+<div class="leaderboard pull-left">
   <h2>Leaderboard</h2>
   <p>the top 10 users</p>
   <table>
     <tr>
+      <th>#</th>
       <th>username</th>
       <th>score</th>
     </tr>
-  <% #@leaders.each do |leader| %>
+  <% @leaders.each_with_index do |leader, index| %>
     <tr>
-      <td> <%= #link_to leader.full_name, leader %></td> 
-      <td><%= #leader.score %></td>
+      <td><%= index+1 %>. </td>
+      <td><%= link_to leader.full_name, leader %></td> 
+      <td><%= leader.score %></td>
     </tr>
-  <% #end %>
+  <% end %>
   </table>
-</div> -->
+</div>

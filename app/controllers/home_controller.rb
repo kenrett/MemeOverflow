@@ -5,5 +5,6 @@ class HomeController < ApplicationController
     if current_user
       load_user_votes_hash
     end
+    @leaders = User.order("score DESC").limit(10)
   end
 end
