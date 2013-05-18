@@ -43,6 +43,6 @@ class User < ActiveRecord::Base
 
 
   def send_notification
-    UserMailer.signup_confirmation(self).deliver
+    # UserMailer.signup_confirmation(self).deliver
   end
 end

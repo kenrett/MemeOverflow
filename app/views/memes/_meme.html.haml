@@ -8,12 +8,12 @@
       = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo') 
   .buttons-container.pagination-centered
     = form_tag meme_votes_path(meme) do
-      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "up").empty?
+      - if current_user == nil || @user_votes[meme.id] != "up"
         = button_tag "Upvote", :name => "vote_type", :value => "up", :class => "btn"
       - else
         = button_tag "Upvote", :name => "vote_type", :value => "", :class => "btn btn-success"
       %p.meme-score= meme.score
-      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "down").empty?
+      - if current_user == nil || @user_votes[meme.id] != "down"
         = button_tag "Downvote", :name => "vote_type", :value => "down", :class => "btn"
       - else
         = button_tag "Downvote", :name => "vote_type", :value => "", :class => "btn btn-success"
