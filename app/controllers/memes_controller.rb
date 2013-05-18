@@ -5,6 +5,9 @@ class MemesController < ApplicationController
 
   def show
     @meme = Meme.find(params[:id])
+    if current_user
+      load_user_votes_hash
+    end
   end
 
   def create
