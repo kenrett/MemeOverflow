@@ -5,6 +5,15 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  if ($("#google-login-button").length > 0){
+    $("form").on("submit" ,function(e){
+      e.preventDefault();
+      window.location = "/auth/google_oauth2"
+    })
+  }
+});
+
 function openFilePicker() {
   filepicker.setKey('AOixcvrX6QDqKiFk6kvaCze');
   filepicker.pickMultiple({

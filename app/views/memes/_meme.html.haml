@@ -7,14 +7,14 @@
     .social-box
       = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo') 
   .buttons-container.pagination-centered
-    = form_tag(meme_votes_path(meme), :remote => true)do
+    = form_tag(meme_votes_path(meme), :remote => true) do
       - if current_user == nil || @user_votes[meme.id] != "up"
-        = button_tag "Upvote", :id => "up#{meme.id}", :name => "vote_type", :value => "up", :class => "btn"
+        = button_tag "Upvote", :id => "up#{meme.id}", :name => "vote_type", :value => "up", :class => "btn vote"
       - else
-        = button_tag "Upvote", :id => "no_up#{meme.id}", :name => "vote_type", :value => "no_up", :class => "btn btn-success"
+        = button_tag "Upvote", :id => "no_up#{meme.id}", :name => "vote_type", :value => "no_up", :class => "btn vote btn-success"
       %p.meme-score= meme.score
       - if current_user == nil || @user_votes[meme.id] != "down"
-        = button_tag "Downvote", :id => "down#{meme.id}",:name => "vote_type", :value => "down", :class => "btn"
+        = button_tag "Downvote", :id => "down#{meme.id}",:name => "vote_type", :value => "down", :class => "btn vote"
       - else
-        = button_tag "Downvote", :id => "no_down#{meme.id}", :name => "vote_type", :value => "no_down", :class => "btn btn-success"
-        
+        = button_tag "Downvote", :id => "no_down#{meme.id}", :name => "vote_type", :value => "no_down", :class => "btn vote btn-success"
+      

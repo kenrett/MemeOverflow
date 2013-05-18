@@ -10,23 +10,13 @@ function select(button) {
 function newScore(memeScoreVal, changeVal) {
   return (memeScoreVal + changeVal).toString();
 }
-  
-
-// console.log(select(clickedBtn));
-// console.log(select(clickedBtnSibling));
 
 var selectedArray = [select(clickedBtn), select(clickedBtnSibling)]
 console.log(memeScoreVal);
 console.log(typeof memeScoreVal);
 
-
-
-
-// console.log(isSelected);
-// console.log(memeId);
-// console.log(voteType);
-
 $(document).on('ajax:success', function(data, status, xhr){
+
   if ($.inArray(true, selectedArray) === -1)
   {
     $(clickedBtn).removeClass().addClass('btn btn-success').attr({value: 'no_' + voteType, id: 'no_' + voteType + memeId });
