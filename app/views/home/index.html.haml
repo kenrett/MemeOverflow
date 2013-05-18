@@ -15,9 +15,10 @@
   - else
     %p= "Welcome, " + current_user.full_name
     = link_to "Sign out", log_out_user_path(current_user)
-
+  =render :partial => "home/leaderboard", :locals => {:leaders => @leaders}
   .gallery
     .row
       - @memes.each do |meme|
-        = render_meme_box(meme)
-  =#render :partial => "home/leaderboard", :locals => {:leaders => @leaders}
+        - if meme.score > -10
+          = render_meme_box(meme)
+  

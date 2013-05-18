@@ -17,16 +17,27 @@
 
 
 .container {
-  padding: 60px 10px 0 20px;
+  padding: 60px 10px 60px 20px;
   border: 1px solid black;
 }
 
 body{
   margin: 0;
 }
+
 .leaderboard{
-  padding: 5px 5px 5px 5px;
-  float:left;
-  width: 225px;
-  border: 1px solid black;
+  width: 284px;
+  border: 3px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #ECF0F1;
 }
+
+
+.leaderboard table tr *{
+  text-align: left;
+}
+
+.leaderboard td:first-child {
+  width: 10%;
+};

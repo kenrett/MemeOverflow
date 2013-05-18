@@ -40,7 +40,7 @@ class Meme < ActiveRecord::Base
   def self.memes_to_show
     latest = Meme.latest(20)
     popular_without_latest = Meme.order("score DESC").limit(20).where("id NOT IN (:ids)", :ids => latest.map(&:id))
-    (latest.map(&:id) + popular_without_latest.map(&:id) ).shuffle.join(";")
+    (latest.map(&:id) + popular_without_latest.map(&:id) ).uniq.shuffle.join(";")
   end
   
 end
