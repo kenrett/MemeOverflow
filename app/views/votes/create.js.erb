@@ -1,0 +1,62 @@
+var memeId = '<%= @vote.meme_id %>';
+var voteType = '<%= @vote.vote_type %>';
+var clickedBtn = $("#<%= @vote.vote_type %><%= @vote.meme_id %>");
+var clickedBtnSibling = clickedBtn.siblings(".btn");
+function select(button) {
+  return button.hasClass('btn-success');
+}
+
+// console.log(select(clickedBtn));
+// console.log(select(clickedBtnSibling));
+
+var selectedArray = [select(clickedBtn), select(clickedBtnSibling)]
+console.log(selectedArray);
+
+// console.log(isSelected);
+// console.log(memeId);
+// console.log(voteType);
+
+$(document).on('ajax:success', function(data, status, xhr){
+  // $("#<%= @vote.vote_type %><%= @vote.meme_id %>").toggleClass('btn-success').attr('value', '');
+});
+
+
+
+
+
+
+// if both unselected and click up: (vote_type = up), sA = [false, false]
+  // toggle up button to have class btn-success
+  // set value of up button to no_up
+  // .meme_score needs to have value + 1
+// if both unselected and click down: (vote_type = down), sA = [false, false]
+  // toggle down button to have class btn-success
+  // set value of down button to no_down
+  // .meme_score needs to have value - 1
+
+
+
+// if up selected and click down: (vote_type = down), sA = [true, false]
+  // toggle up button to not have class btn-success
+  // toggle down button to have class btn-success
+  // set value of up button to up
+  // set value of down button to no_down
+  // .meme_score needs to have value - 2
+// if down selected and click up: (vote_type = up), sA = [false, true]
+  // toggle up button to have class btn-success
+  // toggle down button to not have class btn-success
+  // set value of up button to no_up
+  // set value of down button to down
+  // .meme_score needs to have value + 2
+
+
+
+// if up selected and click up: (vote_type = no_up), sA = [true, false]
+  // toggle up button to not have class btn-success
+  // set value of up button to up
+  // .meme_score needs to have value - 1
+  
+// if down selected and click down: (vote_type = no_down), sA = [false, true]
+  // toggle down button to not have class btn-success
+  // set value of down button to down
+  // .meme_score needs to have value + 1
