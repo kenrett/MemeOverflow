@@ -1,7 +1,6 @@
 class Meme < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :votes
-  # has_many :votes_by_user, :where =>
   attr_accessible :score, :slug, :url, :creator_id, :creator
 
   before_create :create_slug
@@ -41,17 +40,7 @@ class Meme < ActiveRecord::Base
   def self.memes_to_show
     latest = Meme.latest(20)
     popular_without_latest = Meme.order("score DESC").limit(20).where("id NOT IN (:ids)", :ids => latest.map(&:id))
-
     (latest.map(&:id) + popular_without_latest.map(&:id) ).shuffle.join(";")
-    
-    #(Meme.latest_20_meme_ids + Meme.popular_memes_not_including_latest_20_meme_ids)
   end
   
-  def self.latest_20_meme_ids
-    Meme.latest_20_memes.pluck(:id)
-  end
-
-  def self.popular_memes_not_including_latest_20_meme_ids
-    Meme.all_except_latest_20_memes.sort_by { |meme| meme.score }.reverse.first(20).map { |meme| meme.id }
-  end
 end
