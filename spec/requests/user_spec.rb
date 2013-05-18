@@ -51,5 +51,17 @@ describe 'User' do
       first('button', :text => "Downvote").click
       first(".meme-score").text.should eq "-1"
     end
+
+    it "doesn't show image if it has a score less than -10" do
+      stub_current_user(samsamskies)
+      visit root_path
+      page.should have_selector(".meme-box")
+      10.times do 
+        create(:down_vote, :meme_id => memebysam.id)
+      end
+      visit root_path
+      save_page
+      page.should_not have_selector(".meme_box")
+    end
   end  
 end
