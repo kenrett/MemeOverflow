@@ -5,7 +5,7 @@ describe 'User' do
   let!(:sidneythehater) { create(:user) }
   let!(:memebysam) { create(:meme, creator: samsamskies) }
 
-  context "when a user tries to vote", :js=>true do
+  context "when a user tries to vote", :js => true do
     it "can see upvote and downvote buttons"do
       stub_current_user(samsamskies)
       visit root_path
