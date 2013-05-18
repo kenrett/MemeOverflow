@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+
   def create
     find_or_create_user_by_uid
     login(@user)

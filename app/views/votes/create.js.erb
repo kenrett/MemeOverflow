@@ -17,7 +17,7 @@ console.log(selectedArray);
 // console.log(voteType);
 
 $(document).on('ajax:success', function(data, status, xhr){
-  // $("#<%= @vote.vote_type %><%= @vote.meme_id %>").toggleClass('btn-success').attr('value', '');
+  $(clickedBtn).toggleClass('btn-success').attr('value', '');
 });
 
 
@@ -28,19 +28,21 @@ $(document).on('ajax:success', function(data, status, xhr){
 // if both unselected and click up: (vote_type = up), sA = [false, false]
   // toggle up button to have class btn-success
   // set value of up button to no_up
+  $(clickedBtn).toggleClass('btn-success').attr('value', 'no_up');
   // .meme_score needs to have value + 1
 // if both unselected and click down: (vote_type = down), sA = [false, false]
   // toggle down button to have class btn-success
   // set value of down button to no_down
-  // .meme_score needs to have value - 1
+  // .mem needs to have value - 1
 
 
 
 // if up selected and click down: (vote_type = down), sA = [true, false]
-  // toggle up button to not have class btn-success
-  // toggle down button to have class btn-success
-  // set value of up button to up
-  // set value of down button to no_down
+  // toggle up button to not have class btn-success &   // set value of up button to up
+  // toggle down button to have class btn-success & set value of down button to no_down
+  $(clickedBtn).toggleClass('btn-success').attr('value', 'no_up');
+
+  // 
   // .meme_score needs to have value - 2
 // if down selected and click up: (vote_type = up), sA = [false, true]
   // toggle up button to have class btn-success

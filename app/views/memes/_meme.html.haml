@@ -7,20 +7,14 @@
     .social-box
       = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo') 
   .buttons-container.pagination-centered
-    = form_tag(meme_votes_path(meme), :remote => true) do
-      - if can? :manage, :all
-        = button_tag "Admin Upvote", :name => "vote_type", :value => "admin_up"
-        = button_tag "Admin Downvote", :name => "vote_type", :value => "admin_down"
-      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "up").empty?
+    = form_tag(meme_votes_path(meme), :remote => true)do
+      - if current_user == nil || @user_votes[meme.id] != "up"
         = button_tag "Upvote", :id => "up#{meme.id}", :name => "vote_type", :value => "up", :class => "btn"
       - else
         = button_tag "Upvote", :id => "no_up#{meme.id}", :name => "vote_type", :value => "no_up", :class => "btn btn-success"
-      %span.meme-score= meme.score
-      - if current_user == nil || meme.votes.where(voter_id: current_user.id, vote_type: "down").empty?
-        = button_tag "Downvote", :id => "down#{meme.id}", :name => "vote_type", :value => "down", :class => "btn"
+      %p.meme-score= meme.score
+      - if current_user == nil || @user_votes[meme.id] != "down"
+        = button_tag "Downvote", :id => "down#{meme.id}",:name => "vote_type", :value => "down", :class => "btn"
       - else
-        = button_tag "Downvote", :id => "no_down#{meme.id}", :name => "vote_type", :value => "no_down", :class => "btn btn-success"
-      
-
-
-  / = button_to 'Upvote (new)', meme_votes_path(meme, :vote_type => "up"), :method => :post, :remote => true,
+        = button_tag "Downvote", :id => "no_down#{meme.id}" :name => "vote_type", :value => "no_down", :class => "btn btn-success"
+        

@@ -5,6 +5,8 @@ class Meme < ActiveRecord::Base
 
   before_create :create_slug
 
+  scope :latest, lambda{ |latest_count| order("created_at DESC").limit(latest_count) }
+
   def self.cache_scores
     puts "whenever run"
   end
@@ -34,4 +36,11 @@ class Meme < ActiveRecord::Base
   def calculate_admin_point
     (votes.admin_up_votes.count * rand(25) )  - (votes.admin_down_votes.count * rand(25) )
   end
+
+  def self.memes_to_show
+    latest = Meme.latest(20)
+    popular_without_latest = Meme.order("score DESC").limit(20).where("id NOT IN (:ids)", :ids => latest.map(&:id))
+    (latest.map(&:id) + popular_without_latest.map(&:id) ).shuffle.join(";")
+  end
+  
 end

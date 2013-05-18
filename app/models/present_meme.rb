@@ -2,7 +2,7 @@ class PresentMeme < ActiveRecord::Base
   attr_accessible :order_serialized
 
   def self.produce_new_order
-    PresentMeme.create(order_serialized: Meme.limit(10).pluck(:id).join(";"))
+    PresentMeme.create(order_serialized: Meme.memes_to_show)
   end
 
   def parse

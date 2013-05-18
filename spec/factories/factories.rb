@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user, :aliases => [:voter, :creator] do
     full_name 'ed shadi'
     sequence(:email) {|n| "email-#{n}-#{Time.now.to_i}@example.com"  }
+    uid "1234"
   end
 
   factory :admin, :parent => :user do
@@ -13,7 +14,7 @@ FactoryGirl.define do
   end
 
   factory :meme do
-    url "http://google.com"
+    url "https://www.filepicker.io/api/file/e80Be50XRJq5i4ivDiUk/"
     creator
   end
 
