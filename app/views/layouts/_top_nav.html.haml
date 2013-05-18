@@ -1,3 +1,13 @@
-.top-nav
-  = link_to "DBC Memes", root_path
-  = link_to "TV mode", present_memes_show_path
+.container
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      = link_to "DBC Memes", root_path, :class => "brand"
+      %ul.nav.pull-right
+        - if can? :create, Meme
+          %li.divider-vertical
+            =link_to "Upload a meme", :id => 'upload'
+        %li.divider-vertical= link_to "TV mode", present_memes_show_path
+        - if current_user
+          %li.divider-vertical
+            %a{href: "#"}= current_user.full_name
+          %li.divider-vertical= link_to "Sign out", log_out_user_path(current_user)

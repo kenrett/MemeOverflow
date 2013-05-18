@@ -1,28 +1,10 @@
-.top-nav {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  background-color: #2ECC71;
-  line-height: 50px;
-  margin: 0 auto;
-  padding-left: 20px;
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 2em;
-  }
-}
-
-
 .container {
   padding: 60px 10px 60px 20px;
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
-body{
-  margin: 0;
+.navbar-inner a {
+  text-decoration: none;
 }
 
 .leaderboard{

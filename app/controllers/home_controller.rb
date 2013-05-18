@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @meme = Meme.new
-    @memes = Meme.order("score DESC")
+    @memes = Meme.order("score DESC").where("score > ?", -10)
     if current_user
       load_user_votes_hash
     end
