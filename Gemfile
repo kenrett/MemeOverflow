@@ -7,7 +7,7 @@ gem 'social-share-button'
 gem 'sextant'
 gem 'pg'
 gem 'filepicker-rails'
-  gem 'factory_girl_rails'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
