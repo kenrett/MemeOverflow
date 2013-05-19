@@ -6,7 +6,20 @@
 //   // display: none;
 // }
 
+
+body {
+  background-color: #ebebeb;
+}
+
+div.meme-box {
+  width: 280px;
+  margin-top: 40px;
+  background-color: white;
+  padding: 8px
+}
+
 div.meme-box .img-container {
+  padding-bottom: 5px;
   height: 300px;
   line-height: 300px;
   margin-bottom: 10px;
@@ -21,16 +34,41 @@ div.meme-box.span4 a.meme-box-delete{
   // opacity:1;
 }
 
-div.social-box {
-  position: relative;
-  top: -124px;
-  right: -6%;
+.social-share-button {
+  width:50px;
+  height:50px;
 }
 
 div.meme-box.span4 img {
- width: 100%;
+ height:100%;
 }
 
 div.meme-box.span4 .buttons-container *{
  display: inline;
+ padding-bottom: 5px;
 }
+
+
+
+/* form-effects */
+
+.form-effects{
+  -webkit-box-shadow: 5px 10px 6px -6px #777;
+  -moz-box-shadow: 5px 10px 6px -6px #777;
+  box-shadow: 0px 10px 6px -6px #777;
+}
+
+.form-effects:before{
+  -webkit-box-shadow: 5px 10px 6px -6px #777;
+  -moz-box-shadow: 5px 10px 6px -6px #777;
+  box-shadow: 0px 10px 6px -6px #777;
+}
+
+.form-effects:after{
+  -webkit-box-shadow: 5px 100px 6px -6px #777;
+  -moz-box-shadow: 5px 10px 6px -6px #777;
+  box-shadow: 0px 10px 6px -6px #777;
+}
+
+/* form effects */
+
