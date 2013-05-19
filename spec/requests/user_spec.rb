@@ -37,15 +37,16 @@ describe 'User' do
       visit root_path
       first(".meme-score").text.should eq "0"
       first('button', :text => "Upvote").click
+      save_page
       first(".meme-score").text.should eq "1"
     end
 
     it "can downvote a meme if logged in by clicking the downvote button" do
       stub_current_user(samsamskies)
       visit root_path
-      save_page
       first(".meme-score").text.should eq "0"
       first('button', :text => "Downvote").click
+      sleep 2
       first(".meme-score").text.should eq "-1"
     end
 

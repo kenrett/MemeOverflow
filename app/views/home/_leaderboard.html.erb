@@ -1,17 +1,17 @@
-<div class="leaderboard pull-left meme-box">
-  <h2>Leaderboard</h2>
-  <p>the top 10 users</p>
+<div class="leaderboard pull-left">
+  <h2>The Leaderboard</h2>
+  <p>Top 10 users</p>
   <table>
     <tr>
       <th>#</th>
-      <th>username</th>
-      <th>score</th>
+      <th>User</th>
+      <th>Score</th>
     </tr>
   <% @leaders.each_with_index do |leader, index| %>
     <tr>
       <td><%= index+1 %>. </td>
       <td><%= link_to leader.full_name, leader %></td> 
-      <td><%= leader.score %></td>
+      <td class ="leaderscore"><%= leader.score %></td>
     </tr>
   <% end %>
   </table>
