@@ -1,12 +1,12 @@
 .container
-  - if flash[:error]
-    %p= flash[:error]
 
-  - if flash[:notice]
-    %p= flash[:notice]
 
-  - unless current_user
-    .google-container.pagination-centered
+  .google-container.pagination-centered
+    - if flash[:error]
+      %p= flash[:error]
+    - if flash[:notice]
+      %p= flash[:notice]    
+    - unless current_user
       %a#google-login-button{:href => "/auth/google_oauth2"}
         %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}
 

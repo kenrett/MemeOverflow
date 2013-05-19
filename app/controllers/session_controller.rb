@@ -10,6 +10,11 @@ class SessionController < ApplicationController
     redirect_to root_path
   end
 
+  def omniauth_failure
+    flash[:notice] = "Y u no authorize?"
+    redirect_to root_path
+  end
+
   private
 
   def find_user_by_uid
