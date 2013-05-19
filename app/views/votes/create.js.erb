@@ -1,5 +1,4 @@
-var memeId = '<%= @vote.meme_id %>';
-var voteType = '<%= @vote.vote_type %>';
+var memeId = '<%= @vote.meme_id %>'; var voteType = '<%= @vote.vote_type %>';
 var clickedBtn = $("#<%= @vote.vote_type %><%= @vote.meme_id %>");
 var clickedBtnSibling = clickedBtn.siblings(".btn");
 var memeScoreObj = clickedBtn.siblings('.meme-score');
