@@ -4,8 +4,8 @@ class PresentMemesController < ApplicationController
     if Meme.count == 0
       flash[:notice] = "There is currently no meme in the database"
     else
-      next_meme_id = retrieve_current_order.first
-      @meme = Meme.find(next_meme_id)
+      current_order = retrieve_current_order
+      @meme = find_next_meme(current_order)  
     end
     respond_to do |format|
       format.html { render :layout => false}
@@ -33,7 +33,7 @@ private
   end
 
   def find_next_meme(current_order)
-    if last_meme?(current_order)
+    if !Meme.exists?(params[:id].to_i) || last_meme?(current_order)
       order = generate_new_order
       next_meme_index = 0
     else
