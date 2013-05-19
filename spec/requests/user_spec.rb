@@ -37,7 +37,6 @@ describe 'User' do
       visit root_path
       first(".meme-score").text.should eq "0"
       first('button', :text => "Upvote").click
-      first('button', :text => "Upvote").click
       first(".meme-score").text.should eq "1"
     end
 
@@ -46,7 +45,6 @@ describe 'User' do
       visit root_path
       save_page
       first(".meme-score").text.should eq "0"
-      first('button', :text => "Downvote").click
       first('button', :text => "Downvote").click
       first(".meme-score").text.should eq "-1"
     end
