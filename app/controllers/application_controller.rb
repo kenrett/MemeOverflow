@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   def load_user_votes_hash
     @user_votes = {}
-    current_user.votes.each do |vote|
-      @user_votes[vote.meme_id] = vote.vote_type
-    end
+    current_user.votes.map { |vote| @user_votes[vote.meme_id] = vote.vote_type }
   end
 end

@@ -1,16 +1,14 @@
 $(document).ready(function(){
-  $('#upload').on('click', function(e){
+   $('#upload').on('click', function(e){
     e.preventDefault();
     openFilePicker();
   });
-});
 
-$(document).ready(function(){
   if ($("#google-login-button").length > 0){
     $("form").on("submit" ,function(e){
       e.preventDefault();
-      window.location = "/auth/google_oauth2"
-    })
+      window.location = "/auth/google_oauth2";
+    });
   }
 });
 
@@ -24,7 +22,7 @@ function openFilePicker() {
     function(FPFiles){
       $.each(FPFiles, function(index, FPFile){
         $.post('memes', FPFile).always(function(data) {
-          $('div.gallery div.row').prepend(data.responseText);          
+          $('div.gallery div.row').prepend(data.responseText);
         });
       });
     },
