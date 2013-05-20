@@ -21,7 +21,7 @@ class Meme < ActiveRecord::Base
   def create_slug
     self.slug = SecureRandom.hex(4)
   end
-  
+
   def calculate_score
     points = calculate_point
     time_since_submission_in_hours = (Time.now - self.created_at) / 3600
@@ -42,5 +42,5 @@ class Meme < ActiveRecord::Base
     popular_without_latest = Meme.order("score DESC").limit(20).where("id NOT IN (:ids)", :ids => latest.map(&:id))
     (latest.map(&:id) + popular_without_latest.map(&:id) ).uniq.shuffle.join(";")
   end
-  
+
 end

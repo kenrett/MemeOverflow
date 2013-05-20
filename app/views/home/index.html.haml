@@ -13,9 +13,7 @@
       %a.btn.btn-primary{:href=>"/?sort_by=created_at"} Latest
   =render :partial => "home/leaderboard", :locals => {:leaders => @leaders}
   .gallery
-    .row
+    .row.meme-container
       - @memes.each do |meme|
         = render_meme_box(meme)
-
-
-
+=will_paginate @memes
