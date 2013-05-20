@@ -9,5 +9,5 @@
         %li= link_to "TV mode", present_memes_show_path
         - if current_user
           %li
-            %a{href: "#"}= current_user.full_name
+            = link_to current_user.full_name, current_user
           %li= link_to "Sign out", log_out_user_path(current_user)
