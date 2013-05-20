@@ -96,4 +96,36 @@ div.meme-box.span4 .vote-buttons-container * {
   box-shadow: 0px 10px 6px -6px #777;
 }
 
+.team-box{
+  width: 210px;
+  margin-top: 40px;
+  background-color: white;
+  padding: 8px;
+  -webkit-box-shadow: 5px 100px 6px -6px #777;
+  -moz-box-shadow: 5px 10px 6px -6px #777;
+  box-shadow: 0px 10px 6px -6px #777;
+}
+.team{
+  display:inline-block;
+  img{
+    width:210px;
+    height:210px;
+  }
+}
+.span.team-name{
+  font-size: 1em;
+  color: black;
+}
+
+.team-members{
+  padding-top: 100px;
+  .story{
+    width:700px;
+  }
+  p{
+    font-size: 1.2em;
+    word-spacing: 3px;
+    line-height: 1.5em;
+  }
+}
 /* form effects */

@@ -3,7 +3,7 @@ MemeOverflow::Application.routes.draw do
   get "present_memes/next"
   match '/auth/google_oauth2/callback' => "session#create"
   root :to => 'home#index'
-
+  get "aboutus" => "home#aboutus", :as => "aboutus"
   resources :user do 
     member do
      get "log_out" => "session#destroy", :as => "log_out"
