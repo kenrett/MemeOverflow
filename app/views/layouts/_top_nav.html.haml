@@ -7,7 +7,7 @@
         - if can? :create, Meme
           %li= link_to "Upload a meme", '#', :id => 'upload'
         %li= link_to "TV mode", present_memes_show_path
-        %li= link_to "About Us", aboutus_path, :class => "brand brand-shift"
+        %li= link_to "About Us", aboutus_path
         - if current_user
           %li
             = link_to current_user.full_name, current_user
