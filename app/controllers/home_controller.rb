@@ -11,5 +11,6 @@ class HomeController < ApplicationController
   end
 
   def aboutus
+    @team_meme = Meme.find(4)
   end
 end
