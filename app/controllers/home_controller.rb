@@ -7,4 +7,7 @@ class HomeController < ApplicationController
     end
     @leaders = User.order("score DESC").limit(10)
   end
+
+  def aboutus
+  end
 end
