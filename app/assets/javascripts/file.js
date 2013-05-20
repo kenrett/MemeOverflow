@@ -17,7 +17,7 @@ var File = {
   },
 
   setFileKey: function() {
-    filepicker.setKey('AOixcvrX6QDqKiFk6kvaCze');
+    filepicker.setKey('AOixcvrX6QDqKiFk6kvaCz');
   },
 
   pickMultipleImages: function() {

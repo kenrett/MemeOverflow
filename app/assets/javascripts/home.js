@@ -22,7 +22,7 @@ $('div.row.meme-container').infinitescroll({
 });
 
 function openFilePicker() {
-  filepicker.setKey('AOixcvrX6QDqKiFk6kvaCze');
+  filepicker.setKey('AOixcvrX6QDqKiFk6kvaCz');
   filepicker.pickMultiple({
     mimetypes: ['image/*', 'text/plain'],
     container: 'window',
