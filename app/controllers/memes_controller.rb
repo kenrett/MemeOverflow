@@ -5,9 +5,7 @@ class MemesController < ApplicationController
 
   def show
     @meme = Meme.find(params[:id])
-    if current_user
-      load_user_votes_hash
-    end
+    @user_votes = load_user_votes_hash(current_user)
   end
 
   def create
@@ -16,7 +14,7 @@ class MemesController < ApplicationController
     @meme.update_attributes(:creator_id => @user.id)
     if @meme.save
       flash[:notice] = @meme.url
-      load_user_votes_hash
+      @user_votes = load_user_votes_hash(current_user)
       render :json => render_to_string(:partial => "memes/meme", :locals => { :meme => @meme })
     else
       flash[:error] = @meme.errors.full_messages.join(', ')

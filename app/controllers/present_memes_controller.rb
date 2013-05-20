@@ -5,7 +5,7 @@ class PresentMemesController < ApplicationController
       flash[:notice] = "There is currently no meme in the database"
     else
       current_order = retrieve_current_order
-      @meme = find_next_meme(current_order)  
+      @meme = find_next_meme(current_order)
     end
     respond_to do |format|
       format.html { render :layout => false}
@@ -19,15 +19,15 @@ class PresentMemesController < ApplicationController
   end
 
 private
-  
+
   def retrieve_current_order
     if current_order = PresentMeme.last
-      current_order.parse     
+      current_order.parse
     else
       generate_new_order
     end
   end
-  
+
   def generate_new_order
     PresentMeme.produce_new_order.parse
   end
