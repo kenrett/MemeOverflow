@@ -1,20 +1,21 @@
 .container
-
-
   .google-container.pagination-centered
     - if flash[:error]
       %p= flash[:error]
     - if flash[:notice]
-      %p= flash[:notice]    
+      %p= flash[:notice]
     - unless current_user
       %a#google-login-button{:href => "/auth/google_oauth2"}
         %img{:src => "https://developers.google.com/+/images/branding/sign-in-buttons/Red-signin_Long_base_44dp.png"}
-
+  .btn-toolbar
+    .btn-group.offset8
+      %a.btn.btn-primary{:href=>"/?sort_by=score"} Popular
+      %a.btn.btn-primary{:href=>"/?sort_by=created_at"} Latest
   =render :partial => "home/leaderboard", :locals => {:leaders => @leaders}
   .gallery
     .row
       - @memes.each do |meme|
         = render_meme_box(meme)
-  
-  
+
+
 
