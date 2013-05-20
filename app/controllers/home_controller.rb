@@ -10,7 +10,3 @@ class HomeController < ApplicationController
     @leaders = User.order("score DESC").limit(10)
   end
 end
-
-
-# Post.paginate(:page => params[:page], :per_page => 30)
-# Post.where(:published => true).order('id DESC')
