@@ -8,6 +8,7 @@ gem 'sextant'
 gem 'pg'
 gem 'filepicker-rails'
 gem 'factory_girl_rails'
+gem 'will_paginate', '~> 3.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
