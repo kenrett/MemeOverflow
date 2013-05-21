@@ -1,4 +1,5 @@
 class Home::IndexPresenter
+
   STATUSES = ["created_at", "score"]
 
   def initialize(current_user, sort_by_params, page_params)
@@ -23,19 +24,5 @@ class Home::IndexPresenter
       sort_by = "score"
     end
   end
-
-  # def user_votes
-  #   load_user_votes_hash if @current_user
-  # end
-
-  # # this needs to extracted as there is a same method application controller
-  # def load_user_votes_hash
-  #   user_votes = {}
-  #   if @current_user.votes.length > 0
-  #     @current_user.votes.map { |vote| user_votes[vote.meme_id] = vote.vote_type }
-  #   else
-  #     return false
-  #   end
-  # end
 
 end

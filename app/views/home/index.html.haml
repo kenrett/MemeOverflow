@@ -14,6 +14,6 @@
   =render :partial => "home/leaderboard", :locals => {:leaders => @presenter.leaders}
   .gallery
     .row.meme-container
-      - @presenter.memes.each do |meme|
+      - @memes.each do |meme|
         = render_meme_box(meme)
 =will_paginate @presenter.memes
