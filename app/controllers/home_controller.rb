@@ -9,6 +9,3 @@ class HomeController < ApplicationController
     @team_meme = Meme.find(4)
   end
 end
-
-
-
