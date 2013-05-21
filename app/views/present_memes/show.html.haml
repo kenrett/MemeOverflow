@@ -6,11 +6,11 @@
     = filepicker_js_include_tag
     = csrf_meta_tags
   %body
-  - if flash[:notice]
-    %p= flash[:notice]
-  - else
-    .presenter-body
-      =render_presenter_box(@meme)
-
-    
-
+    / %iframe{:src => "http://phase4-floorduty.herokuapp.com/", :width => "300", :height => "300" }
+    / %iframe{:src => "http://www.w3schools.com", :width => "300", :height => "300" }
+    - if flash[:notice]
+      %p= flash[:notice]
+    - else
+      .presenter-body
+        =render_presenter_box(@meme)
+  

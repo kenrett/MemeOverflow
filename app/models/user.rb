@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     self.update_attributes( :score => self.memes.inject(0) { |sum, meme| sum + meme.score } )
   end
 
+  def meme_votes
+    self.votes.inject({}) {|user_votes, vote| user_votes[vote.meme_id] = vote.vote_type; user_votes}
+  end
+
   private
 
   def valid_auth_status?

@@ -7,10 +7,10 @@
       <th>User</th>
       <th>Score</th>
     </tr>
-  <% @leaders.each_with_index do |leader, index| %>
+  <% leaders.each_with_index do |leader, index| %>
     <tr>
       <td><%= index+1 %>. </td>
-      <td><%= link_to leader.full_name, leader %></td> 
+      <td><%= link_to leader.full_name, leader %></td>
       <td class ="leaderscore"><%= leader.score %></td>
     </tr>
   <% end %>

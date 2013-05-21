@@ -22,6 +22,7 @@ group :development, :test do
   gem 'better_errors'
 end
 
+gem 'draper', '~> 1.0'
 gem "omniauth-google-oauth2"
 gem "cancan"
 gem 'thin'
