@@ -10,4 +10,8 @@
         = meme.upvote_button
         %p.meme-score= meme.score
         = meme.downvote_button
-    = social_share_button_tag("Check out this meme from #DBCmeme !", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo')
+        - if current_user == nil || (@user_votes[meme.id] != "down" if @user_votes)
+          = button_tag "Downvote", :id => "down#{meme.id}",:name => "vote_type", :value => "down", :class => "btn vote"
+        - else
+          = button_tag "Downvote", :id => "no_down#{meme.id}", :name => "vote_type", :value => "no_down", :class => "btn vote btn-success"
+    = social_share_button_tag("Check out this meme from #MemeOverflow!", :url => meme_url(meme), :'data-source' => meme.url, :'data-type' => 'photo')   
