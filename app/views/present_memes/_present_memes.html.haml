@@ -1,7 +1,7 @@
 .row
   .present-meme-box.pagination-centered
     = image_tag meme.url, :alt => "alternate text for a image", :class => "img-polaroid"
-    %span Courtesy of MemeOverflow.com
+    %span.courtesy Courtesy of MemeOverflow.com
     =form_tag("/present_memes/next", :method => "get") do
       =hidden_field_tag :id, @meme.id.to_s
 
