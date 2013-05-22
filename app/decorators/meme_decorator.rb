@@ -1,3 +1,5 @@
+# REVIEW: nice job on using decorators. However, this decorator is not DRY and has a lot of repetitive code, specifically upvote_button and downvote_button methods.
+
 class MemeDecorator < Draper::Decorator
   delegate_all
 

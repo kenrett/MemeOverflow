@@ -7,10 +7,12 @@ class Meme < ActiveRecord::Base
 
   scope :latest, lambda{ |latest_count| order("created_at DESC").limit(latest_count) }
 
+  # REVIEW: what's going on here?
   def self.cache_scores
     puts "whenever run"
   end
 
+  # REVIEW: why save! ?
   def update_meme_score
     self.score = calculate_point
     self.save!
@@ -38,6 +40,7 @@ class Meme < ActiveRecord::Base
   end
 
   def self.memes_to_show
+    # REVIEW: you don't need to call latest or order on Meme, self is Meme, so self.latest(20) or even latest(20) will work.
     latest = Meme.latest(20)
     popular_without_latest = Meme.order("score DESC").limit(20).where("id NOT IN (:ids)", :ids => latest.map(&:id))
     (latest.map(&:id) + popular_without_latest.map(&:id) ).uniq.shuffle.join(";")

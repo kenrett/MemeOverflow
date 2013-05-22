@@ -1,11 +1,15 @@
+# REVIEW: this controller has a crazy name and crazy methods. I don't get it. It needs major refactoring and lots of love.
 class PresentMemesController < ApplicationController
 
   def show
-    Meme.count == 0 ? flash[:notice] = "There is currently no meme in the database" : @meme = find_next_meme(params[:id].to_i)  
+    # REVIEW: Meme.count.zero?
+    # I love one liners and I'm the first to support it, but you're doing too much here.
+    Meme.count == 0 ? flash[:notice] = "There is currently no meme in the database" : @meme = find_next_meme(params[:id].to_i)
     render :layout => false
   end
 
   def next
+    # REVIEW: what's the purpose of line 13? why are you creating this instance variable?
     @meme = find_next_meme(params[:id].to_i)
     render :json => { :url => @meme.url, :id => @meme.id }
   end
@@ -13,6 +17,8 @@ class PresentMemesController < ApplicationController
   private
 
   def find_next_meme(id)
+     # REVIEW: why are you setting this current_order variable?
+     # I bet you we can shrink this method into couple of lines of code.
     current_order = retrieve_current_order
     if !Meme.exists?(id) || last_meme?(current_order, id)
       order = generate_new_order
@@ -42,6 +48,7 @@ class PresentMemesController < ApplicationController
   end
 
   def last_meme?(current_order, id)
+    # REVIEW if current_order actually returns and id, then rename it to current_order_id
     current_order.last == id
   end
 end

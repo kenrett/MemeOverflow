@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
 
   def create
+    # REVIEW: love this direction, but why not move this to the user model?
     find_or_create_user_by_uid
     login(@user)
   end
@@ -16,7 +17,8 @@ class SessionController < ApplicationController
   end
 
   private
-
+  # REVIEW: great direction, but if we move the call to find_or_create_user_by_uid to the user
+  # model, we won't need lines 22-32, good job though.
   def find_user_by_uid
     User.find_by_uid(auth["uid"])
   end

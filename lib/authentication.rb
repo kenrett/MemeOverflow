@@ -1,3 +1,4 @@
+# REVIEW: love the use of this pattern, but is this module unit tested?
 module Authentication
   def login(user)
     session[:id] = user.id

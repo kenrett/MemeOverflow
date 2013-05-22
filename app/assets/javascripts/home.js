@@ -1,3 +1,4 @@
+// REVIEW: can you inspire yourself by looking at File.js ?
 $(document).ready(function(){
  $('#upload').on('click', function(e){
   e.preventDefault();
@@ -21,6 +22,7 @@ $('div.row.meme-container').infinitescroll({
   });
 });
 
+// REVIEW: you're polluting the global namespace with this function.
 function openFilePicker() {
   filepicker.setKey('AOixcvrX6QDqKiFk6kvaCz');
   filepicker.pickMultiple({

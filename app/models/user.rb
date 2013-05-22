@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   STATUS = ["user", "admin", "super", "banned", "visitor"]
 
   def self.create_with_omniauth(auth)
+    # REVIEW: why create! ?
     create! do |user|
       user.uid = auth["uid"]
       user.full_name = auth["info"]["name"]
@@ -21,6 +22,7 @@ class User < ActiveRecord::Base
     User.find_by_uid(auth["uid"]) || User.create_with_omniauth(auth)
   end
 
+  # REVIEW: love this sweetness :)
   STATUS.each do |status|
     define_method "#{status}?" do
       self.auth_status == status
@@ -45,7 +47,7 @@ class User < ActiveRecord::Base
     errors.add(:auth_status, "must be a valid status.") unless STATUS.include?(self.auth_status)
   end
 
-
+  # REVIEW: don't commit empty/commented methods.
   def send_notification
     # UserMailer.signup_confirmation(self).deliver
   end

@@ -2,7 +2,8 @@
   .present-meme-box.pagination-centered
     = image_tag meme.url, :alt => "alternate text for a image", :class => "img-polaroid"
     %span.courtesy Courtesy of MemeOverflow.com
+    / REVIEW: avoid using string paths, use named routes.
     =form_tag("/present_memes/next", :method => "get") do
       =hidden_field_tag :id, @meme.id.to_s
 
-    
+

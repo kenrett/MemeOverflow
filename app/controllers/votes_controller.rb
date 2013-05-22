@@ -1,8 +1,9 @@
 class VotesController < ApplicationController
-  
+
+  # REVIEW: this is a useless comment, remove it.
   #this will go to the create.js.erb file
   def create
-    p params[:meme_id]
+    p params[:meme_id] # REVIEW: avoid committing debgging code
     if current_user
       # @vote = Vote.where(voter_id: current_user.id, meme_id: params[:meme_id]).first
       @vote = create_or_update_vote
@@ -13,6 +14,8 @@ class VotesController < ApplicationController
 
   private
 
+  # REVIEW: move this to the User vote model, it's a great direction but doesn't belong here.
+  # This method could also be DRYed up a little.
   def create_or_update_vote
     vote = Vote.where(voter_id: current_user.id, meme_id: params[:meme_id]).first
     if vote

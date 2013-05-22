@@ -1,3 +1,4 @@
+// REVIEW: that's some sweet looking code.
 var File = {
   init: function() {
     this.addListeners();

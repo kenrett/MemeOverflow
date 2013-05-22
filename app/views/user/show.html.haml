@@ -2,6 +2,7 @@
   %h1= "Memes uploaded by #{@user.full_name}"
   .gallery
     .row
+      / REVIEW: why do we need this .any? if we make sure that @memes is never nil and it returns an empty array, then we're good.
       - if @memes.any?
         - @memes.each do |meme|
           = render_meme_box(meme, :small)
