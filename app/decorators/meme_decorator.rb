@@ -20,4 +20,14 @@ class MemeDecorator < Draper::Decorator
   def vote_button(name, options)
     h.button_tag name, {:name => "vote_type"}.merge(options)
   end
+
+  def url_size(size)
+    if size == :small
+      "/convert?w=300&h=300"
+    elsif size == :big
+      "/convert?w=600&h=600"
+    elsif size.class == Array
+      "/convert?w=#{size[0]}&h=#{size[1]}"
+    end
+  end
 end

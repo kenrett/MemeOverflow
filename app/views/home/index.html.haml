@@ -15,5 +15,5 @@
   .gallery
     .row.meme-container
       - @memes.each do |meme|
-        = render_meme_box(meme)
+        = render_meme_box(meme, :small)
 =will_paginate @presenter.memes
