@@ -4,7 +4,7 @@ $(document).ready(function(){
   openFilePicker();
 });
 
- if ($("#google-login-button").length > 0){
+ if ($("#sign-out").length === 0){
   $("form").on("submit" ,function(e){
     e.preventDefault();
     window.location = "/auth/google_oauth2";

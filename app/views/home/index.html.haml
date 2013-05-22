@@ -11,9 +11,9 @@
     .btn-group.offset8
       %a.btn.btn-primary{:href=>"/?sort_by=score"} Popular
       %a.btn.btn-primary{:href=>"/?sort_by=created_at"} Latest
-  =render :partial => "home/leaderboard", :locals => {:leaders => @leaders}
+  =render :partial => "home/leaderboard", :locals => {:leaders => @presenter.leaders}
   .gallery
     .row.meme-container
       - @memes.each do |meme|
-        = render_meme_box(meme)
-=will_paginate @memes
+        = render_meme_box(meme, :small)
+=will_paginate @presenter.memes

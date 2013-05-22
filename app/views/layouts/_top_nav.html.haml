@@ -10,5 +10,5 @@
         %li= link_to "About Us", aboutus_path
         - if current_user
           %li
-            = link_to current_user.full_name, current_user
-          %li= link_to "Sign out", log_out_user_path(current_user)
+            = link_to current_user.full_name.titleize, current_user
+          %li#sign-out= link_to "Sign out", log_out_user_path(current_user)

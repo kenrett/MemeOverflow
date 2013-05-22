@@ -1,3 +1,15 @@
 // Place all the styles related to the Meme controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-page div.meme-box {
+  width: 920px;
+}
+
+.show-page .meme-box .img-container {
+  height: 80%;
+}
+
+.show-page .meme-box img {
+  height: 500px;
+}

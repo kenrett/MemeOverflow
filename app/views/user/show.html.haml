@@ -4,4 +4,4 @@
     .row
       - if @memes.any?
         - @memes.each do |meme|
-          = render_meme_box(meme)
+          = render_meme_box(meme, :small)

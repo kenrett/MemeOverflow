@@ -1,6 +1,6 @@
 .container
   %h1= "Memes"
   .gallery
-    .row
-      =render_meme_box(@meme)
+    .row.show-page
+      =render_meme_box(@meme, :big)
 
