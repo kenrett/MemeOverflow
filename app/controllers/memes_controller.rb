@@ -9,11 +9,11 @@ class MemesController < ApplicationController
 
   def create
     @user = current_user
-    @meme = Meme.new(url: params[:url])
-    @meme.update_attributes(:creator_id => @user.id)
+    @meme = Meme.new(url: params[:url], :creator_id => @user.id)
     if @meme.save
-      flash[:notice] = @meme.url
-      render :json => render_to_string(:partial => "memes/meme", :locals => { :meme => @meme })
+      @meme = @meme.decorate
+      flash[:notice] = "Successfully Uploaded :)"
+      render :json => render_to_string(:partial => "memes/meme", :locals => {:meme => @meme, :size => :small})
     else
       flash[:error] = @meme.errors.full_messages.join(', ')
     end
