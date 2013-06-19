@@ -19,9 +19,9 @@ class Home::IndexPresenter
 
   def sort_by(sort_params)
     if sort_params && STATUSES.include?(sort_params)
-      sort_by = sort_params
+      sort_params
     else
-      sort_by = "score"
+      "created_at"
     end
   end
 
