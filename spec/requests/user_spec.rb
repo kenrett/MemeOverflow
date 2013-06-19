@@ -21,12 +21,14 @@ describe 'User' do
     end
 
     it "gets redirected to google by clicking on the google sign in button" do
+      pending
       # visit root_path
       # find("#google-login-button").click
       # page.should have_content("Missing required parameter: client_id")
     end
 
     it "gets redirected to google if not logged in and tries to vote" do
+      pending
       # visit root_path
       # first('button', :text => "Upvote").click
       # page.should have_content("Missing required parameter: client_id")
@@ -37,7 +39,7 @@ describe 'User' do
       visit root_path
       first(".meme-score").text.should eq "0"
       first('button', :text => "Upvote").click
-      save_page
+      sleep 2
       first(".meme-score").text.should eq "1"
     end
 
