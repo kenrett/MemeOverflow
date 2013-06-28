@@ -6,13 +6,13 @@ This group project is a new and improved version of the original [DBC memes](htt
 
 Check it out at [memeoverflow.com](http://www.memeoverflow.com)
 
-## Built by:
+## Built by
 * [@fabsays](https://github.com/fabsays)
 * [@stephenitis](https://github.com/stephenitis)
 * [@samsamskies](https://github.com/samsamskies)
 * [@sidazhang](https://github.com/sidazhang)
 
-## Contributing to the project:
+## Contributing
 
 1. Fork the repo
 
