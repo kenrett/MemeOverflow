@@ -7,7 +7,7 @@ This group project is a new and improved version of the original [DBC memes](htt
 Check it out at [memeoverflow.com](http://www.memeoverflow.com)
 
 ## Built by
-* [@fabsays](https://github.com/fabsays)
+* [@fab](https://github.com/fab)
 * [@stephenitis](https://github.com/stephenitis)
 * [@samsamskies](https://github.com/samsamskies)
 * [@sidazhang](https://github.com/sidazhang)
