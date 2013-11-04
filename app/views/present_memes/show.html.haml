@@ -6,7 +6,6 @@
     = filepicker_js_include_tag
     = csrf_meta_tags
   %body
-    %iframe{:src => "http://phase4-floorduty.herokuapp.com", :width => "100%", :height => "100%" }
     - if flash[:notice]
       %p= flash[:notice]
     - else
