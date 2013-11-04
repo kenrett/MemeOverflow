@@ -97,19 +97,19 @@ div.meme-box.span4 .vote-buttons-container * {
 }
 
 .team-box{
-  width: 210px;
+  width: 220px;
   margin-top: 40px;
   background-color: white;
-  padding: 8px;
+  padding: 6px;
   -webkit-box-shadow: 5px 100px 6px -6px #777;
   -moz-box-shadow: 5px 10px 6px -6px #777;
   box-shadow: 0px 10px 6px -6px #777;
+  text-align: center;
 }
 .team{
   display:inline-block;
   img{
-    width:210px;
-    height:210px;
+    width: 100%;
   }
 }
 .span.team-name{
